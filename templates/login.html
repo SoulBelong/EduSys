@@ -1,0 +1,25 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>登陆</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body style="background-image: url('{% static 'images/bc.jpg' %}');background-attachment:fixed;
+        background-position:center;">
+<form action="#" method="post" class="col-lg-3 col-lg-offset-4" style="background: white;opacity:0.9;height: 320px;
+        margin-top:200px;border-radius: 10px;padding-left: 50px;padding-right: 50px;">
+    <h3 class="text-center">教育管理系统</h3>
+    <div class="form-group">
+        <label>用户名</label>
+        <input type="email" class="form-control" placeholder="用户名" name="username">
+    </div>
+    <div class="form-group">
+        <label>密码</label>
+        <input type="password" class="form-control" placeholder="密码" name="paw">
+    </div>
+    <button type="submit" class="btn btn-success  col-lg-12"  style="margin-top:30px;">登陆</button>
+</form>
+</body>
+</html>

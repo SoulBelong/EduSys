@@ -1,3 +1,9 @@
-from django.shortcuts import render
+from django.shortcuts import render,HttpResponse
+from django import views
 
-# Create your views here.
+def show(req):
+    return render(req,'login.html')
+
+class Login(views.View):
+    def get(self):
+        return HttpResponse('ok')
