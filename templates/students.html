@@ -1,0 +1,43 @@
+{% extends "index.html" %}
+
+{% block nav %}
+    <li><a href="/school/grade/">班级管理</a></li>
+    <li class="active"><a href="#">学生管理</a></li>
+    <li><a href="/school/teachers/">教师管理 </a></li>
+{% endblock %}
+
+{% block content %}
+    <table style="width: 1200px;margin-left:50px;" class="table table-bordered pull-left">
+        <thead>
+        <tr>
+            <th class="text-center">编号</th>
+            <th class="text-center">姓名</th>
+            <th class="text-center">年龄</th>
+            <th class="text-center">生日</th>
+            <th class="text-center">性别</th>
+            <th class="text-center">班级</th>
+            <th class="text-center">联系方式</th>
+            <th class="text-center">住址</th>
+            <th class="text-center">操作</th>
+        </tr>
+        </thead>
+        <tbody class="text-center">
+        {% for obj in data %}
+        <tr>
+            <td>{{ obj.id }}</td>
+            <td>{{ obj.name }}</td>
+            <td>{{ obj.age }}</td>
+            <td>{{ obj.birth|date:'Y-m-d' }}</td>
+            <td>{{ obj.get_gender_display }}</td>
+            <td>{{ obj.grade }}</td>
+            <td>{{ obj.telphone }}</td>
+            <td>{{ obj.addr }}</td>
+            <td>
+                <a href="" class="btn-sm btn-success">编辑</a>
+                <a href="" class="btn-sm btn-danger" style="margin-left: 30px;">删除</a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

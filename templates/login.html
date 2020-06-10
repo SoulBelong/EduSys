@@ -10,10 +10,11 @@
         background-position:center;">
 <form action="#" method="post" class="col-lg-3 col-lg-offset-4" style="background: white;opacity:0.9;height: 320px;
         margin-top:200px;border-radius: 10px;padding-left: 50px;padding-right: 50px;">
+    {% csrf_token %}
     <h3 class="text-center">教育管理系统</h3>
     <div class="form-group">
         <label>用户名</label>
-        <input type="email" class="form-control" placeholder="用户名" name="username">
+        <input type="text" class="form-control" placeholder="用户名" name="username">
     </div>
     <div class="form-group">
         <label>密码</label>

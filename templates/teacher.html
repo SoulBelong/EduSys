@@ -1,0 +1,47 @@
+{% extends "index.html" %}
+
+{% block nav %}
+    <li><a href="/school/grade/">班级管理</a></li>
+    <li><a href="/school/students/">学生管理</a></li>
+    <li class="active"><a href="#">教师管理 </a></li>
+{% endblock %}
+
+{% block content %}
+    <table style="width: 1200px;margin-left:50px;" class="table table-bordered pull-left">
+        <thead>
+        <tr>
+            <th class="text-center">编号</th>
+            <th class="text-center">姓名</th>
+            <th class="text-center">年龄</th>
+            <th class="text-center">性别</th>
+            <th class="text-center">生日</th>
+            <th class="text-center">电话</th>
+            <th class="text-center">住址</th>
+            <th class="text-center">班级</th>
+            <th class="text-center">操作</th>
+        </tr>
+        </thead>
+        <tbody class="text-center">
+        {% for obj in data %}
+        <tr>
+            <td>{{ obj.id }}</td>
+            <td>{{ obj.name }}</td>
+            <td>{{ obj.age }}</td>
+            <td>{{ obj.get_gender_display }}</td>
+            <td>{{ obj.birth|date:'Y-m-d' }}</td>
+            <td>{{ obj.tel }}</td>
+            <td>{{ obj.addr }}</td>
+            <td>
+            {% for i in obj.grades.values %}
+                {{ i.name }}  &nbsp;
+            {% endfor %}
+            </td>
+            <td>
+                <a href="/school/edit_teacher/{{ obj.id }}/" class="btn-sm btn-success">编辑</a>
+                <a href="/school/del_teacher/{{ obj.id }}/" class="btn-sm btn-danger" style="margin-left: 30px;">删除</a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}

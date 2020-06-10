@@ -1,0 +1,42 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+</head>
+<body>
+<nav class="navbar navbar-default" role="navigation">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">教育管理系统</a>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a>{{ user }}</a></li>
+            <li><a href="/school/logout/"> 注销 </a></li>
+        </ul>
+    </div>
+</nav>
+<div>
+    <div class="container pull-left" style="width:200px;">
+        <div class="row">
+            <div class="span2">
+                <ul class="nav nav-pills nav-stacked">
+                    {% block nav %}
+                    <li><a href="/school/grade/">班级管理</a></li>
+                    <li><a href="/school/students/">学生管理</a></li>
+                    <li><a href="/school/teachers/">教师管理 </a></li>
+                    {% endblock %}
+                </ul>
+            </div>
+        </div>
+    </div>
+    {% block content %}
+        <div class="pull-left">
+            <h3>欢迎{{ user }}登陆</h3>
+        </div>
+    {% endblock %}
+</div>
+</body>
+</html>

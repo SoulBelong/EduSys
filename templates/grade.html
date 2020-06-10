@@ -1,0 +1,35 @@
+{% extends "index.html" %}
+
+{% block username %}
+<li><a>{{ user }}</a></li>
+{% endblock %}
+
+{% block nav %}
+    <li class="active"><a href="#">班级管理</a></li>
+    <li><a href="/school/students/">学生管理</a></li>
+    <li><a href="/school/teachers/">教师管理 </a></li>
+{% endblock %}
+
+{% block content %}
+    <table style="width: 800px;margin-left:50px;" class="table table-bordered pull-left">
+        <thead>
+        <tr>
+            <th class="text-center">编号</th>
+            <th class="text-center">班级名称</th>
+            <th class="text-center">操作</th>
+        </tr>
+        </thead>
+        <tbody class="text-center">
+        {% for obj in data %}
+        <tr>
+            <td>{{ obj.id }}</td>
+            <td>{{ obj.name }}</td>
+            <td>
+                <a href="" class="btn-sm btn-success">编辑</a>
+                <a href="" class="btn-sm btn-danger" style="margin-left: 30px;">删除</a>
+            </td>
+        </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+{% endblock %}
